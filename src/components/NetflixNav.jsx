@@ -26,22 +26,26 @@ const NetflixNav = () => {
             <Nav.Link href="#link">KIDS</Nav.Link>
             <BellFill />
             <DropdownButton
-              drop={"down-centered"}
+              drop={"start"}
               variant="outline-light"
               title={<img src="./assets/img/kids_icon.png" alt="kids-logo" style={{ width: "30px" }} />}
               flip={true}
             >
               <Dropdown.Item eventKey="1">
-                My Profile{" "}
-                <span>
-                  <PersonFill />
-                </span>
+                <NavLink to={"/profile"} className="dropdown-item">
+                  My Profile{" "}
+                  <span>
+                    <PersonFill />
+                  </span>
+                </NavLink>
               </Dropdown.Item>
               <Dropdown.Item eventKey="2">
-                Settings{" "}
-                <span>
-                  <GearFill />
-                </span>
+                <NavLink to={"/settings"} className="dropdown-item">
+                  Settings{" "}
+                  <span>
+                    <GearFill />
+                  </span>
+                </NavLink>
               </Dropdown.Item>
             </DropdownButton>
           </div>

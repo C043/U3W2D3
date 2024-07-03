@@ -5,7 +5,7 @@ class Settings extends Component {
   render() {
     return (
       <body data-bs-theme="light">
-        <div data-bs-theme="light" className="con mt-5">
+        <div className="con mt-5">
           <h1 className="mb-4 pb-2 border-bottom border-black">Account</h1>
           <div className="row border-bottom border-black pb-4 mb-3 align-items-start">
             <div className="col-8 col-lg-4 mb-4">
