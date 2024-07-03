@@ -50,6 +50,7 @@ const MovieDetails = () => {
     } catch (error) {
       setError(true);
       setLoadingRev(false);
+      navigate("/error");
       console.log(error);
     }
   };
@@ -61,7 +62,7 @@ const MovieDetails = () => {
 
   return (
     <>
-      {isLoading && !hasError && isLoadingRev ? (
+      {isLoading || isLoadingRev ? (
         <Spinner />
       ) : (
         <Row>
