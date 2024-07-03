@@ -5,7 +5,9 @@ import { useParams } from "react-router-dom";
 const MovieDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
   const [hasError, setError] = useState(false);
-  const [movie, setMovie] = useState(null);
+  const [movie, setMovie] = useState("null");
+  const [reviews, setReviews] = useState([]);
+  const [isLoadingRev, setLoadingRev] = useState(true);
 
   const id = useParams().movieId;
 
@@ -27,13 +29,37 @@ const MovieDetails = () => {
     }
   };
 
+  const fetchComments = async () => {
+    try {
+      const resp = await fetch("https://striveschool-api.herokuapp.com/api/comments/" + id, {
+        headers: {
+          Authorization:
+            "Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2NjZiZWQyNjdjMjM5YzAwMTUyZjRiMmUiLCJpYXQiOjE3MjAwMTYwOTksImV4cCI6MTcyMTIyNTY5OX0.VzkI4lsPoksrZYuJzBYITgfVHRjSyBLp9ylJS0pLTgA",
+        },
+      });
+      if (resp.ok) {
+        const data = await resp.json();
+        setReviews(await data);
+        setLoadingRev(false);
+      } else {
+        console.log(resp);
+        throw resp.status;
+      }
+    } catch (error) {
+      setError(true);
+      setLoadingRev(false);
+      console.log(error);
+    }
+  };
+
   useEffect(() => {
     fetchMovieDetails();
-  }, [fetchMovieDetails]);
+    fetchComments();
+  }, []);
 
   return (
     <>
-      {isLoading && !hasError ? (
+      {isLoading && !hasError && isLoadingRev ? (
         <Spinner />
       ) : (
         <Row>
@@ -45,6 +71,12 @@ const MovieDetails = () => {
             <div className="d-flex flex-column">
               <h2 className="h3">Plot:</h2>
               <p>{movie.Plot}</p>
+              <h2 className="h3">Reviews:</h2>
+              <ul>
+                {reviews.map(review => {
+                  return <li key={review._id}>{review.comment}</li>;
+                })}
+              </ul>
             </div>
           </div>
         </Row>
