@@ -4,7 +4,6 @@ import { useNavigate, useParams } from "react-router-dom";
 
 const MovieDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
-  const [hasError, setError] = useState(false);
   const [movie, setMovie] = useState("null");
   const [reviews, setReviews] = useState([]);
   const [isLoadingRev, setLoadingRev] = useState(true);
@@ -24,8 +23,6 @@ const MovieDetails = () => {
         throw resp.status;
       }
     } catch (error) {
-      setError(true);
-      setIsLoading(false);
       navigate("/error");
       console.log(error);
     }
@@ -48,8 +45,6 @@ const MovieDetails = () => {
         throw resp.status;
       }
     } catch (error) {
-      setError(true);
-      setLoadingRev(false);
       navigate("/error");
       console.log(error);
     }
