@@ -14,7 +14,7 @@ const Home = () => {
       <NetflixHeader title="Home" />
       <NetflixGallery search="Harry Potter" />
       <NetflixGallery search="Star Wars" />
-      <NetflixGallery search="Dahmer" />
+      <NetflixGallery search="Marvel" />
     </>
   );
 };

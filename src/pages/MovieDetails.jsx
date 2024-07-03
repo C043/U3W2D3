@@ -1,6 +1,6 @@
 import { useEffect, useState } from "react";
-import { Col, Row, Spinner } from "react-bootstrap";
-import { useParams } from "react-router-dom";
+import { Badge, Col, Row, Spinner } from "react-bootstrap";
+import { useNavigate, useParams } from "react-router-dom";
 
 const MovieDetails = () => {
   const [isLoading, setIsLoading] = useState(true);
@@ -10,6 +10,7 @@ const MovieDetails = () => {
   const [isLoadingRev, setLoadingRev] = useState(true);
 
   const id = useParams().movieId;
+  const navigate = useNavigate();
 
   const fetchMovieDetails = async () => {
     try {
@@ -25,6 +26,7 @@ const MovieDetails = () => {
     } catch (error) {
       setError(true);
       setIsLoading(false);
+      navigate("/error");
       console.log(error);
     }
   };
@@ -68,19 +70,23 @@ const MovieDetails = () => {
           </Col>
           <div className="d-flex flex-column flex-md-row gap-5">
             <img src={movie.Poster} alt="" />
-            <div className="d-flex flex-column">
+            <div className="d-flex flex-column align-items-start">
               <h2 className="h3">Plot:</h2>
               <p>{movie.Plot}</p>
               <h2 className="h3">Reviews:</h2>
-              <ul>
-                {reviews.map(review => {
-                  return (
-                    <li key={review._id}>
-                      <b>{review.author}</b> said {review.comment} <b>{review.rate}/5</b>
-                    </li>
-                  );
-                })}
-              </ul>
+              {reviews.length < 1 ? (
+                <Badge bg="danger">No reviews here.</Badge>
+              ) : (
+                <ul>
+                  {reviews.map(review => {
+                    return (
+                      <li key={review._id}>
+                        <b>{review.author}</b> said {review.comment} <b>{review.rate}/5</b>
+                      </li>
+                    );
+                  })}
+                </ul>
+              )}
             </div>
           </div>
         </Row>
