@@ -1,5 +1,6 @@
 import { Container, Dropdown, DropdownButton, Nav, Navbar } from "react-bootstrap";
 import { BellFill, GearFill, PersonFill, Search } from "react-bootstrap-icons";
+import { NavLink } from "react-router-dom";
 
 const NetflixNav = () => {
   return (
@@ -11,13 +12,12 @@ const NetflixNav = () => {
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#link" active>
+            <NavLink to={"/"} className="nav-link">
               Home
-            </Nav.Link>
-            <Nav.Link href="#">Tv Shows</Nav.Link>
-            <Nav.Link href="#">Movies</Nav.Link>
-            <Nav.Link href="#">Recently Added</Nav.Link>
-            <Nav.Link href="#">My List</Nav.Link>
+            </NavLink>
+            <NavLink to={"/tv-shows"} className="nav-link">
+              Tv Shows
+            </NavLink>
           </Nav>
           <div className="d-flex gap-2 align-items-center">
             <Search />

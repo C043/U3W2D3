@@ -4,7 +4,7 @@ import { Microsoft, TextLeft } from "react-bootstrap-icons";
 const NetflixHeader = () => {
   return (
     <div className="d-flex align-items-center">
-      <h1 className="me-5">TV Shows</h1>
+      <h1 className="me-5">Home</h1>
       <DropdownButton className="me-auto" drop={"down"} variant="outline-light" title={" Genres "}>
         <Dropdown.Item eventKey="1">Action</Dropdown.Item>
         <Dropdown.Item eventKey="2">Drama</Dropdown.Item>
