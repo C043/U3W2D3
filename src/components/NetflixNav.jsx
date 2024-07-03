@@ -1,8 +1,10 @@
 import { Container, Dropdown, DropdownButton, Nav, Navbar } from "react-bootstrap";
 import { BellFill, GearFill, PersonFill, Search } from "react-bootstrap-icons";
-import { NavLink } from "react-router-dom";
+import { NavLink, useLocation } from "react-router-dom";
 
 const NetflixNav = () => {
+  const location = useLocation();
+  console.log(location);
   return (
     <Navbar expand="lg" className="bg-body-invisible mb-3">
       <Container>
@@ -20,7 +22,7 @@ const NetflixNav = () => {
             </NavLink>
           </Nav>
           <div className="d-flex gap-2 align-items-center">
-            <Search />
+            <Search /> <input placeholder={location.pathname === "/tv-shows" ? "Search Tv Shows" : "Search"} />
             <Nav.Link href="#link">KIDS</Nav.Link>
             <BellFill />
             <DropdownButton
