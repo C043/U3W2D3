@@ -6,9 +6,9 @@ const NetflixNav = () => {
   return (
     <Navbar expand="lg" className="bg-body-invisible mb-3">
       <Container>
-        <Navbar.Brand href="#home">
+        <NavLink to={"/"}>
           <img id="netflix-logo" src="./assets/img/netflix_logo.png" alt="netflix-logo" style={{ width: "150px" }} />
-        </Navbar.Brand>
+        </NavLink>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">

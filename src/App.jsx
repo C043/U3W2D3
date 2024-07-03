@@ -5,6 +5,7 @@ import NetflixNav from "./components/NetflixNav";
 import NetflixFooter from "./components/NetflixFooter";
 import TvShows from "./pages/TvShows";
 import { Container } from "react-bootstrap";
+import MovieDetails from "./pages/MovieDetails";
 
 function App() {
   return (
@@ -14,6 +15,7 @@ function App() {
         <Routes>
           <Route path="/" element={<Home />} />
           <Route path="/tv-shows" element={<TvShows />} />
+          <Route path="/movie-details/:movieId" element={<MovieDetails />} />
         </Routes>
       </Container>
       <NetflixFooter />

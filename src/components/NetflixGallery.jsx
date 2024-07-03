@@ -3,6 +3,7 @@ import { Alert, Spinner } from "react-bootstrap";
 import Slider from "react-slick";
 import "../../node_modules/slick-carousel/slick/slick.css";
 import "../../node_modules/slick-carousel/slick/slick-theme.css";
+import { useNavigate } from "react-router-dom";
 const NetflixGallery = props => {
   const [settings] = useState({
     dots: false,
@@ -69,9 +70,11 @@ const NetflixGallery = props => {
     }
   };
 
+  const navigate = useNavigate();
+
   useEffect(() => {
     fetchMovies();
-  }, []);
+  }, [fetchMovies]);
 
   return (
     <div className="mb-3">
@@ -88,7 +91,7 @@ const NetflixGallery = props => {
           {movies.map(movie => {
             return (
               <div className="slick-item" key={movie.imdbID}>
-                <img src={movie.Poster} alt="movie-poster" />
+                <img src={movie.Poster} alt="movie-poster" onClick={() => navigate("/movie-details/" + movie.imdbID)} />
               </div>
             );
           })}
