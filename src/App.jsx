@@ -20,8 +20,8 @@ function App() {
           <Route path="/tv-shows" element={<TvShows />} />
           <Route path="/movie-details/:movieId" element={<MovieDetails />} />
           <Route path="/profile" element={<Profile />} />
-          <Route path="*" element={<ErrorPage />} />
           <Route path="/settings" element={<Settings />} />
+          <Route path="*" element={<ErrorPage />} />
         </Routes>
       </Container>
       <NetflixFooter />

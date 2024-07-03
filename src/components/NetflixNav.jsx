@@ -1,4 +1,4 @@
-import { Container, Dropdown, DropdownButton, Nav, Navbar } from "react-bootstrap";
+import { ButtonGroup, Container, Dropdown, DropdownButton, Nav, Navbar } from "react-bootstrap";
 import { BellFill, GearFill, PersonFill, Search } from "react-bootstrap-icons";
 import { NavLink, useLocation } from "react-router-dom";
 
@@ -26,10 +26,9 @@ const NetflixNav = () => {
             <Nav.Link href="#link">KIDS</Nav.Link>
             <BellFill />
             <DropdownButton
-              drop={"start"}
+              align={"end"}
               variant="outline-light"
               title={<img src="./assets/img/kids_icon.png" alt="kids-logo" style={{ width: "30px" }} />}
-              flip={true}
             >
               <Dropdown.Item eventKey="1">
                 <NavLink to={"/profile"} className="dropdown-item">
