@@ -66,7 +66,7 @@ const MovieDetails = () => {
           <Col xs={12} className="mb-4">
             <h1>{movie.Title}</h1>
           </Col>
-          <div className="d-flex gap-5">
+          <div className="d-flex flex-column flex-md-row gap-5">
             <img src={movie.Poster} alt="" />
             <div className="d-flex flex-column">
               <h2 className="h3">Plot:</h2>
@@ -74,7 +74,11 @@ const MovieDetails = () => {
               <h2 className="h3">Reviews:</h2>
               <ul>
                 {reviews.map(review => {
-                  return <li key={review._id}>{review.comment}</li>;
+                  return (
+                    <li key={review._id}>
+                      <b>{review.author}</b> said {review.comment} <b>{review.rate}/5</b>
+                    </li>
+                  );
                 })}
               </ul>
             </div>

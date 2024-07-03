@@ -74,7 +74,7 @@ const NetflixGallery = props => {
 
   useEffect(() => {
     fetchMovies();
-  }, [fetchMovies]);
+  }, []);
 
   return (
     <div className="mb-3">
