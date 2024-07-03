@@ -1,0 +1,93 @@
+@import "./bootstrap-overrides";
+.App {
+  text-align: center;
+}
+body {
+  overflow-x: hidden;
+}
+
+#netflix-logo {
+  margin-left: -16px;
+}
+
+.slick-list {
+  img {
+    width: 100%;
+    height: 330px;
+    object-fit: cover;
+    transition: all 300ms;
+    &:hover {
+      scale: 1.03;
+      cursor: pointer;
+      z-index: 99999;
+    }
+  }
+}
+
+footer {
+  @media screen and (min-width: 1024px) {
+    width: 80vw;
+    margin-inline: auto;
+  }
+
+  @media screen and (min-width: 1440px) {
+    width: 50vw;
+  }
+  .icons {
+    font-size: 30px;
+  }
+}
+
+.con {
+  max-width: 90vw;
+  margin-inline: auto;
+
+  @media screen and (min-width: 768px) {
+    max-width: 60vw;
+  }
+
+  @media screen and (min-width: 1024px) {
+    max-width: 60vw;
+    margin-inline: auto;
+  }
+  @media screen and (min-width: 1440px) {
+    max-width: 41vw;
+  }
+  .name-input {
+    width: 100%;
+    border: none;
+    &::placeholder {
+      color: white;
+    }
+  }
+}
+
+/* profile.html */
+.row {
+  .profile-image {
+    width: 100%;
+  }
+  .icon {
+    bottom: 10px;
+    left: 20px;
+    padding: 6px;
+    background-color: rgb(17, 17, 17);
+    border-radius: 50%;
+    border: 1px solid white;
+    box-shadow: 5px 5px 16px 0px rgba(0, 0, 0, 0.678);
+    cursor: pointer;
+  }
+}
+
+.btn-outline-secondary {
+  &:hover {
+    background-color: white;
+    color: black;
+  }
+}
+
+.row {
+  a {
+    text-decoration: none;
+  }
+}
